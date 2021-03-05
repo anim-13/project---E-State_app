@@ -1,0 +1,32 @@
+@import 'bootstrap/dist/css/bootstrap';  
+  .navbar-brand {
+  font-size: 2rem;
+  }  
+
+  h1 {
+  color: blue;
+  text-align: center;
+  }
+  
+  body {
+    //background-image: url("resort.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  div{
+    width: 100%;
+    text-align: center;
+  }
+  
+  input[type=text] {
+    border: none;
+    border-bottom: 2px solid red;
+  }
+  
+.footer {
+  position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear:both;
+  padding-top:20px;
+} 
