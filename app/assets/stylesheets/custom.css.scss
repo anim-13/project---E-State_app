@@ -1,15 +1,15 @@
 @import 'bootstrap/dist/css/bootstrap';  
   .navbar-brand {
-  font-size: 2rem;
+  font-size: 1.5rem;
   }  
 
   h1 {
-  color: blue;
+  color: white;
   text-align: center;
   }
   
   body {
-    background-image: url("resort.jpg");
+    background-image: url("best.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -17,18 +17,17 @@
     width: 100%;
     text-align: center;
   }
-  
-  input[type=text] {
-    border: none;
-    border-bottom: 2px solid red;
+  input[type=password] {
+    border: 2px solid red;
+    border-radius: 4px;
   }
   
-.footer {
-  position: absolute;
-  bottom: 0; 
-  height: 60px;
-  width: auto;
-  background-color: brown;
-  clear:both;
-  padding-top:20px;
-} 
+  .footer {
+    position: absolute;
+    bottom: 0; 
+    height: 60px;
+    width: auto;
+    background-color: brown;
+    clear:both;
+    padding-top:20px;
+  } 
