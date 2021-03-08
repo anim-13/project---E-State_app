@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <%= render 'layouts/navigation' %>   
     <% if current_user %><br>
       <div class="btn btn-primary">
         <%= "Logged in as #{current_user.email}" %> | <%= link_to 'Home', root_path %> | <%= link_to 'Log Out', logout_path, method: :delete, :class => "btn" %>
@@ -28,7 +29,8 @@
       <%= alert %>
     <% end %>
 
-    <%= render 'layouts/navigation' %>    
+    
+    <%= render 'layouts/footer' %> 
     <%= yield %>
   </body>
 </html>

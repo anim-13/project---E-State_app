@@ -1,19 +1,17 @@
-<nav class="navbar  navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">
-    <img src="/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
-    Apna-Adda
-  </a>
-</nav>
-
-<div class="card">
-  <div class="card-header">
-    Featured
-  </div>
-</div>
-
 <% if notice %>
     <%= notice %>
 <% end %>
 <% if alert %>
   <%= alert %>
 <% end %>
+
+
+
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <div class="col-sm-2">
+      <%=link_to image_tag("kakshi.png", alt: "logo"), '/', class: 'navbar-brand' %>
+      <%=  link_to "...", '#', id: "prov", class: 'navbar-brand' %>
+    </div>
+  </div>
+</header>

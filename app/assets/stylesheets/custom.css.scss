@@ -9,7 +9,7 @@
   }
   
   body {
-    //background-image: url("resort.jpg");
+    background-image: url("resort.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -24,9 +24,11 @@
   }
   
 .footer {
-  position: relative;
-  margin-top: -150px; /* negative value of footer height */
-  height: 150px;
+  position: absolute;
+  bottom: 0; 
+  height: 60px;
+  width: auto;
+  background-color: brown;
   clear:both;
   padding-top:20px;
 } 
