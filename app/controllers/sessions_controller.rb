@@ -3,8 +3,8 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by(email: session_params[:email])  
-    if user && user.authenticate(session_params[:password]) 
-      session[:user_id] = user.id.to_s
+    if user&.authenticate(session_params[:password]) 
+      session[:user_id] = user.id
       redirect_to root_path, notice: 'Successfully logged in!'
     else
       flash.now.alert = "Incorrect email or password, try again."
