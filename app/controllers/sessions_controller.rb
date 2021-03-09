@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :user_logged_in, if: :current_user, except: :destroy
+  
   def new; end
 
   def create
@@ -20,5 +22,10 @@ class SessionsController < ApplicationController
   private
   def session_params
     params.require(:login).permit(:email, :password)
+  end
+
+  def user_logged_in
+    flash.new.alert = "Already logged in"
+    render :new
   end
 end
