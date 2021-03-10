@@ -12,7 +12,10 @@
 
   <body>
     <%= render 'layouts/message' %>   
+<<<<<<< HEAD
     <%= render 'layouts/navigation' %>
+=======
+>>>>>>> ebc3df9497806d2f7b5325daed26d89d68c6ba71
     <% if current_user %><br>
       <%= "Logged in as #{current_user.email}" %> | <%= link_to 'Home', root_path %> | <%= link_to 'Log Out', logout_path, method: :delete %>  
     <% else %><br>
