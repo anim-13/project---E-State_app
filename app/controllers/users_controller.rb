@@ -14,8 +14,25 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(current_user.id)
+  end
+
+  def update
+    @user = User.find(current_user.id)
+    if @user.update(name: user_update[:name])
+      redirect_to root_url, notice: "Profile updated Successfully"
+    else
+      render :edit
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end  
+
+  def user_update
+    params.require(:user).permit(:name)
+  end
 end
