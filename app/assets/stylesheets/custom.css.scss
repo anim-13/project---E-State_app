@@ -1,0 +1,40 @@
+@import 'bootstrap/dist/css/bootstrap';  
+.navbar-brand {
+  font-size: 1.5rem;
+}  
+
+h1 {
+  color: white;
+  text-align: center;
+}
+  
+body {
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+  
+div{
+  width: 100%;
+  text-align: center;
+}
+  
+input[type=password] {
+  border: 2px solid red;
+  border-radius: 4px;
+}
+  
+.footer {
+  position: absolute;
+  bottom: 0; 
+  height: 60px;
+  width: auto;
+  background-color: brown;
+  clear:both;
+  padding-top:20px;
+} 
+
+.logo {
+  width: 1.5em;
+  height: 1.5em;
+}
