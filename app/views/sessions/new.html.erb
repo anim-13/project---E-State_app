@@ -1,14 +1,14 @@
 <h1>Log In</h1>
 <%= form_for :login do |f| %>
-  <div class="labels text-body" >
+  <div class = "labels text-body" >
     <%= f.label :email, class:"text-white" %><br>
-    <%= f.text_field :email, class: 'text_field', placeholder: "Email", autofocus: true %>
+    <%= f.text_field :email, class: "text_field", placeholder: "Email", autofocus: true %>
   </div>
-  <div class="labels text-body" >
+  <div class = "labels text-body" >
     <%= f.label :password, class:"text-white" %><br>
-    <%= f.password_field :password, class: 'text_field', placeholder: "Password" %>
+    <%= f.password_field :password, class: "text_field", placeholder: "Password" %>
   </div>
   <div>
-    <br><%= f.submit "Log In", :class =>"btn btn-outline-dark" %>
+    <br><%= f.submit "Log In", class: "btn btn-outline-dark" %>
   </div>
 <% end %>
