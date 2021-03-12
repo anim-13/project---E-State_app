@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(current_user.id)
-    if @user.update(name: user_update[:name])
+    if @user.update(user_update)
       redirect_to root_url, notice: "Profile updated Successfully"
     else
       render :edit
@@ -33,6 +33,6 @@ class UsersController < ApplicationController
   end  
 
   def user_update
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, :contact)
   end
 end
