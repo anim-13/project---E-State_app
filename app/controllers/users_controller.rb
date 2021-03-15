@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :find_user_id
+  
   def new
     @user = User.new
   end
@@ -15,7 +17,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
     unless current_user.id == @user.id
       flash.now.alert = "Denied Access!"
       redirect_to login_path
@@ -23,7 +24,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
     if @user.update(user_update)
       redirect_to root_url, notice: "Profile updated Successfully"
     else
@@ -38,5 +38,9 @@ class UsersController < ApplicationController
 
   def user_update
     params.require(:user).permit(:name, :contact)
+  end
+
+  def find_user_id
+    @user = User.find_by_id(params[:id])
   end
 end
