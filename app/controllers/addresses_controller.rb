@@ -1,6 +1,11 @@
 class AddressesController < ApplicationController
+  def index
+    @address = current_user.addresses
+  end
+
   def new
-    @address = Address.new
+    @user = User.find(current_user.id)
+    @address = @user.addresses.new
   end
 
   def create
@@ -16,12 +21,14 @@ class AddressesController < ApplicationController
   end
 
   def edit
-    @address = Address.find(params[:id])
+    @user = User.find(current_user.id)
+    @address  = current_user.addresses.find(params[:id])
   end
 
-  def update
+  def update    
+    @user = User.find(current_user.id)
     @address = Address.find(params[:id])
-    if @address.update(comment_params)
+    if @address.update(address_params)
       redirect_to root_path
     else
       render :edit
@@ -36,7 +43,7 @@ class AddressesController < ApplicationController
   end
 
   private
-  def comment_params
+  def address_params
     params.require(:address).permit(:country, :state, :city, :address, :pincode)
   end
 end

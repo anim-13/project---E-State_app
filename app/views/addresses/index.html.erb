@@ -1,0 +1,29 @@
+<h1>Available Addresses </h1>
+<% if @address.present? %>
+  <table class="table"> 
+    <thead>
+      <tr>
+        <th scope="col">S.No.</th>
+        <th scope="col">Country</th>
+        <th scope="col">State</th>
+        <th scope="col">City/th>
+        <th scope="col">Address</th>
+        <th scope="col">Pincode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @address.each_with_index do |addr, index_no| %>
+        <tr> 
+          <th scope="row"><h6><%= index_no + 1 %>.</h6> </td> 
+          <td><h6><%= addr.country %></h6></td> 
+          <td><h6><%= addr.state %></h6></td>
+          <td><h6><%= addr.city %></h6></td>
+          <td><h6><%= addr.address %></h6></td> 
+          <td><h6><%= addr.pincode %></h6></td>   
+        </tr> 
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h1>No Address is available.</h1>
+<% end %>
