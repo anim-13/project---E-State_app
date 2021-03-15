@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
   end
 
   def user_logged_in
-    flash.new.alert = "Already logged in"
+    flash.now.alert = "Already logged in"
     render :new
   end
 end

@@ -15,11 +15,15 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
+    unless current_user.id == @user.id
+      flash.now.alert = "Denied Access!"
+      redirect_to login_path
+    end
   end
 
   def update
-    @user = User.find(current_user.id)
+    @user = User.find(params[:id])
     if @user.update(user_update)
       redirect_to root_url, notice: "Profile updated Successfully"
     else
