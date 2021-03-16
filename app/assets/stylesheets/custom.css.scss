@@ -43,3 +43,15 @@ input[type=password] {
   width: 1.5em;
   height: 1.5em;
 }
+
+th {
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+td {
+  text-align: center;
+}

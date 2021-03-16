@@ -1,49 +1,50 @@
 class AddressesController < ApplicationController
+  before_action :set_user, :set_address
+
   def index
     @address = current_user.addresses
   end
 
   def new
-    @user = User.find(current_user.id)
     @address = @user.addresses.new
   end
 
-  def create
-    @user = User.find(current_user.id)
+  def create  
     @address = @user.addresses.create(address_params)
     if @address.save
       flash[:notice] = "Address created successfully!"
-      redirect_to root_path
+      redirect_to user_addresses_path
     else
       flash.now.alert = "Not Created"
       render :new
     end
   end
 
-  def edit
-    @user = User.find(current_user.id)
-    @address  = current_user.addresses.find(params[:id])
-  end
+  def edit; end
 
   def update    
-    @user = User.find(current_user.id)
-    @address = Address.find(params[:id])
     if @address.update(address_params)
-      redirect_to root_path
+      redirect_to user_addresses_path
     else
       render :edit
     end
   end
 
   def destroy
-    @address = Address.find(params[:id])
     @address.destroy
-
-    redirect_to root_path
+    redirect_to user_addresses_path
   end
 
   private
   def address_params
     params.require(:address).permit(:country, :state, :city, :address, :pincode)
+  end
+
+  def set_user
+    @user = User.find_by_id(current_user.id)
+  end
+
+  def set_address
+    @address = Address.find_by_id(params[:id])
   end
 end
