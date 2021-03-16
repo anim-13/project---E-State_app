@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :find_user_id
+  before_action :set_user
   
   def new
     @user = User.new
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :contact)
   end
 
-  def find_user_id
+  def set_user
     @user = User.find_by_id(params[:id])
   end
 end
