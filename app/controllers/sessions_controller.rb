@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.find_by(email: session_params[:email])  
     if user&.authenticate(session_params[:password]) 
       session[:user_id] = user.id
-      redirect_to root_path, notice: 'Successfully logged in!'
+      redirect_to edit_user_path(current_user.id), notice: 'Successfully logged in!'
     else
       flash.now.alert = "Incorrect email or password, try again."
       render :new
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
   end
 
   def user_logged_in
-    flash.new.alert = "Already logged in"
+    flash.now.alert = "Already logged in"
     render :new
   end
 end
