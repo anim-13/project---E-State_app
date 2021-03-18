@@ -42,7 +42,7 @@ class AddressesController < ApplicationController
   end
 
   def set_user
-    @user = User.find_by_id(current_user)
+    @user = current_user
   end
 
   def set_address
