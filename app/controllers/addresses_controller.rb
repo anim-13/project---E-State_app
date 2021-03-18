@@ -10,7 +10,7 @@ class AddressesController < ApplicationController
   end
 
   def create  
-    @address = @user.addresses.create(address_params)
+    @address = @user.addresses.new(address_params)
     if @address.save
       flash[:notice] = "Address created successfully!"
       redirect_to user_addresses_path
@@ -41,7 +41,7 @@ class AddressesController < ApplicationController
   end
 
   def set_user
-    @user = User.find_by_id(current_user.id)
+    @user = User.find_by_id(params[:id])
   end
 
   def set_address

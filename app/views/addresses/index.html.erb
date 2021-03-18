@@ -13,9 +13,9 @@
       </tr>
     </thead>
     <tbody>
-      <% @address.each_with_index do |addr, index_no| %>
+      <% @address.each.with_index(1) do |addr, index_no| %>
         <tr> 
-          <th scope = "row"><h6><%= index_no + 1 %>.</h6> </td> 
+          <th scope = "row"><h6><%= index_no %>.</h6> </td> 
           <td><h6><%= addr.country %></h6></td>
           <td><h6><%= addr.state %></h6></td>
           <td><h6><%= addr.city %></h6></td>
