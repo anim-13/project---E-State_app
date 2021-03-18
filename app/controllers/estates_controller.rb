@@ -1,8 +1,9 @@
 class EstatesController < ApplicationController
-  before_action :set_user, :set_estate
+  before_action :set_user, only: [:create, :edit, :update, :destroy]
+  before_action :set_estate, only: [:edit, :update, :destroy]
 
   def index
-    @estate = current_user.estates
+    @estates = current_user.estates
   end
 
   def new
@@ -10,7 +11,7 @@ class EstatesController < ApplicationController
   end
 
   def create  
-    @estate = @user.estates.create(estate_params)
+    @estate = @user.estates.new(estate_params)
     if @estate.save
       flash[:notice] = "Estate created successfully!"
       redirect_to user_estates_path
@@ -41,7 +42,7 @@ class EstatesController < ApplicationController
   end
 
   def set_user
-    @user = User.find_by_id(current_user.id)
+    @user = current_user
   end
 
   def set_estate

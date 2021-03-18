@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :estates
+  has_many :estates, dependent: :destroy 
   before_save { email.downcase! }
   
   has_secure_password

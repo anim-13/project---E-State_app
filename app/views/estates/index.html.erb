@@ -1,5 +1,5 @@
 <h1>Available Estates </h1>
-<% if @estate.present? %>
+<% if @estates.present? %>
   <table class = "table"> 
     <thead>
       <tr>
@@ -15,9 +15,9 @@
       </tr>
     </thead>
     <tbody>
-      <% @estate.each_with_index do |est, index_no| %>
-        <tr> 
-          <th scope = "row"><h6><%= index_no + 1 %>.</h6> </td> 
+      <% @estates.each.with_index(1) do |est, index_no| %>
+        <tr>
+          <th scope = "row"><h6><%= index_no %>.</h6> </td> 
           <td><h6><%= est.name %></h6></td>
           <td><h6><%= est.address %></h6></td>
           <td><h6><%= est.area %></h6></td>
@@ -29,7 +29,7 @@
             <%= link_to "Edit", edit_user_estate_path(:id => est.id) %> | <%= link_to "Delete", user_estate_path(:id => est.id),
               method: :delete,
               data: { confirm: "Are you sure?" } %>
-          </td> 
+          </td>
         </tr> 
       <% end %>
     </tbody>
