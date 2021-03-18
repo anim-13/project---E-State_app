@@ -1,8 +1,9 @@
 class AddressesController < ApplicationController
-  before_action :set_user, :set_address
+  before_action :set_user, only: [:create, :edit, :update, :destroy]
+  before_action :set_address, only: [:edit, :upadte, :destroy]
 
   def index
-    @address = current_user.addresses
+    @addresses = current_user.addresses
   end
 
   def new
@@ -41,7 +42,7 @@ class AddressesController < ApplicationController
   end
 
   def set_user
-    @user = User.find_by_id(params[:id])
+    @user = User.find_by_id(current_user)
   end
 
   def set_address

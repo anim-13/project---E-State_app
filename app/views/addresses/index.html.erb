@@ -1,5 +1,5 @@
 <h1>Available Addresses </h1>
-<% if @address.present? %>
+<% if @addresses.present? %>
   <table class = "table"> 
     <thead>
       <tr>
@@ -13,7 +13,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @address.each.with_index(1) do |addr, index_no| %>
+      <% @addresses.each.with_index(1) do |addr, index_no| %>
         <tr> 
           <th scope = "row"><h6><%= index_no %>.</h6> </td> 
           <td><h6><%= addr.country %></h6></td>
