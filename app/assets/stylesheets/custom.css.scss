@@ -7,6 +7,11 @@ h1 {
   color: white;
   text-align: center;
 }
+
+h6 {
+  color: white;
+  text-align: center;
+}
   
 body {
   background-image: url("background.jpg");
@@ -37,4 +42,16 @@ input[type=password] {
 .logo {
   width: 1.5em;
   height: 1.5em;
+}
+
+th {
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+td {
+  text-align: center;
 }

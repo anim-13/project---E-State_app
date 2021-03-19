@@ -1,0 +1,38 @@
+<h1>Available Addresses </h1>
+<% if @addresses.present? %>
+  <table class = "table"> 
+    <thead>
+      <tr>
+        <th scope = "col">S.No.</th>
+        <th scope = "col">Country</th>
+        <th scope = "col">State</th>
+        <th scope = "col">City</th>
+        <th scope = "col">Address</th>
+        <th scope = "col">Pincode</th>
+        <th scope = "col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @addresses.each.with_index(1) do |addr, index_no| %>
+        <tr> 
+          <th scope = "row"><h6><%= index_no %>.</h6> </td> 
+          <td><h6><%= addr.country %></h6></td>
+          <td><h6><%= addr.state %></h6></td>
+          <td><h6><%= addr.city %></h6></td>
+          <td><h6><%= addr.address %></h6></td> 
+          <td><h6><%= addr.pincode %></h6></td>
+          <td>
+            <%= link_to "Edit", edit_user_address_path(:id => addr.id) %> | <%= link_to "Delete", user_address_path(:id => addr.id),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+          </td> 
+        </tr> 
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h1>No Address is available.</h1>
+<% end %>
+<ul>
+  <li><%= link_to "Create New Address", new_user_address_path(current_user) %></li>
+</ul>
