@@ -16,6 +16,11 @@
     <%= f.label :password_confirmation, class: "text-white" %><br>
     <%= f.password_field :password_confirmation, class: "text_field", placeholder: "Retype Password" %>
   </div>
+  <div class = "labels text-body" >
+    <%= f.label :contact, class: "text-white" %><br>
+    <%= f.number_field :contact, class: "text_field", placeholder: "Contact" %>
+  </div>
+  <div>
   <div>
     <br><%= f.submit "Sign up!", class: "btn btn-outline-dark" %>
   </div>
