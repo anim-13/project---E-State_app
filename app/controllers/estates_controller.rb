@@ -1,5 +1,5 @@
 class EstatesController < ApplicationController
-  before_action :set_user, only: [:create, :edit, :update, :destroy]
+  before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_estate, only: [:edit, :update, :destroy]
 
   def index
@@ -16,7 +16,7 @@ class EstatesController < ApplicationController
       flash[:notice] = "Estate created successfully!"
       redirect_to user_estates_path
     else
-      flash.now.alert = "Not Created"
+      flash.now.alert = "Estate not Created"
       render :new
     end
   end
@@ -25,8 +25,10 @@ class EstatesController < ApplicationController
 
   def update    
     if @estate.update(estate_params)
+      flash[:notice] = "Estate updated successfully!"
       redirect_to user_estates_path
     else
+      flash.now.alert = "Estate not updated"
       render :edit
     end
   end
@@ -46,6 +48,6 @@ class EstatesController < ApplicationController
   end
 
   def set_estate
-    @estate = Estate.find_by_id(params[:id])
+    @estate = @user.estates.find_by_id(params[:id])
   end
 end

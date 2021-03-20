@@ -26,7 +26,7 @@
           <td><h6><%= est.kitchen %></h6></td>
           <td><h6><%= est.park %></h6></td>
           <td>
-            <%= link_to "Edit", edit_user_estate_path(:id => est.id) %> | <%= link_to "Delete", user_estate_path(:id => est.id),
+            <%= link_to "Edit", edit_user_estate_path(id: est.id) %> | <%= link_to "Delete", user_estate_path(id: est.id),
               method: :delete,
               data: { confirm: "Are you sure?" } %>
           </td>
