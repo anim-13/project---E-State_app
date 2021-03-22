@@ -1,6 +1,6 @@
 class EstatesController < ApplicationController
-  before_action :set_user, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_estate, only: [:edit, :update, :destroy]
+  before_action :set_user, only: %i(new create edit update destroy)
+  before_action :set_estate, only: %i(edit update destroy)
 
   def index
     @estates = current_user.estates
@@ -39,6 +39,7 @@ class EstatesController < ApplicationController
   end
 
   private
+
   def estate_params
     params.require(:estate).permit(:name, :address, :area, :bedroom, :hall , :kitchen, :park)
   end

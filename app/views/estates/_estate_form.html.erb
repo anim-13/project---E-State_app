@@ -1,4 +1,4 @@
-<%= form_for ([ @user, @estate]) do |f| %>
+<%= form_for ([@user, @estate]) do |f| %>
   <div class = "labels text-body" >
     <%= f.label :Name, class: "text-white" %><br>
     <%= f.text_field :name, class: "text_field", placeholder: "Name", autofocus: true %>
