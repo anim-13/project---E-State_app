@@ -1,0 +1,33 @@
+<%= form_for ([@user, @estate]) do |f| %>
+  <div class = "labels text-body" >
+    <%= f.label :Name, class: "text-white" %><br>
+    <%= f.text_field :name, class: "text_field", placeholder: "Name", autofocus: true %>
+  </div>
+  <div class = "labels text-body" >
+    <%= f.label :Address, class: "text-white" %><br>
+    <%= f.text_field :address, class: "text_field", placeholder: "Address" %>
+  </div>
+  <div class = "labels text-body" >
+    <%= f.label :Area, class: "text-white" %><br>
+    <%= f.number_field :area, class: "text_field", placeholder: "Area" %>
+  </div>
+  <div class = "labels text-body" >
+    <%= f.label :Bedroom, class: "text-white" %><br>
+    <%= f.number_field :bedroom, class: "text_field", placeholder: "Bedroom" %>
+  </div>
+  <div class = "labels text-body" >
+    <%= f.label :Hall, class: "text-white" %><br>
+    <%= f.number_field :hall, class: "text_field", placeholder: "Hall" %>
+  </div>
+  <div class = "labels text-body" >
+    <%= f.label :Kitchen, class: "text-white" %><br>
+    <%= f.number_field :kitchen, class: "text_field", placeholder: "Kitchen" %>
+  </div>
+  <div class = "labels text-body" >
+    <%= f.label :Park, class: "text-white" %><br>
+    <%= f.number_field :park, class: "text_field", placeholder: "Park" %>
+  </div>
+  <div>
+    <br><%= f.submit "Add", class: "btn btn-outline-dark" %>
+  </div>
+<% end %>

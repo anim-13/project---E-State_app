@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :estates, dependent: :destroy 
   has_many :addresses, dependent: :destroy 
   before_save { email.downcase! }
   
