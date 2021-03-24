@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
-  before_action :set_user, only: [:create, :edit, :update, :destroy]
-  before_action :set_address, only: [:edit, :upadte, :destroy]
+  before_action :set_user, only: %i(new create edit update destroy)
+  before_action :set_address, only: %i(edit show update destroy)
 
   def index
     @addresses = current_user.addresses
@@ -12,12 +12,16 @@ class AddressesController < ApplicationController
 
   def create  
     @address = @user.addresses.new(address_params)
-    if @address.save
-      flash[:notice] = "Address created successfully!"
-      redirect_to user_addresses_path
-    else
-      flash.now.alert = "Not Created"
-      render :new
+
+    respond_to do |format|
+      if @address.save
+        #flash[:notice] = "Address created successfully!"
+        format.html { redirect_to user_addresses_path }
+      else
+        #flash.now.alert = "Not Created"
+        format.html { render :new }
+        format.js
+      end
     end
   end
 
@@ -33,7 +37,9 @@ class AddressesController < ApplicationController
 
   def destroy
     @address.destroy
-    redirect_to user_addresses_path
+    respond_to do |format|
+      format.js
+    end 
   end
 
   private

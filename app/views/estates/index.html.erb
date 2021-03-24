@@ -14,25 +14,25 @@
         <th scope = "col">Options</th>
       </tr>
     </thead>
-    <tbody>
       <% @estates.each.with_index(1) do |est, index_no| %>
-        <tr>
-          <th scope = "row"><h6><%= index_no %>.</h6> </td> 
-          <td><h6><%= est.name %></h6></td>
-          <td><h6><%= est.address %></h6></td>
-          <td><h6><%= est.area %></h6></td>
-          <td><h6><%= est.bedroom %></h6></td> 
-          <td><h6><%= est.hall %></h6></td>
-          <td><h6><%= est.kitchen %></h6></td>
-          <td><h6><%= est.park %></h6></td>
-          <td>
-            <%= link_to "Edit", edit_user_estate_path(id: est.id) %> | <%= link_to "Delete", user_estate_path(id: est.id),
-              method: :delete,
-              data: { confirm: "Are you sure?" } %>
-          </td>
-        </tr> 
+        <tbody id="deleteEstate<%= est.id %>">
+          <tr>
+            <th scope = "row"><h6><%= index_no %>.</h6> </td> 
+            <td><h6><%= est.name %></h6></td>
+            <td><h6><%= est.address %></h6></td>
+            <td><h6><%= est.area %></h6></td>
+            <td><h6><%= est.bedroom %></h6></td> 
+            <td><h6><%= est.hall %></h6></td>
+            <td><h6><%= est.kitchen %></h6></td>
+            <td><h6><%= est.park %></h6></td>
+            <td>
+              <%= link_to "Edit", edit_user_estate_path(id: est.id) %> | <%= link_to "Delete", user_estate_path(id: est.id),
+                method: :delete, remote: true,
+                data: { confirm: "Are you sure?" } %>
+            </td>
+          </tr> 
+        </tbody>
       <% end %>
-    </tbody>
   </table>
 <% else %>
   <h1>No Estate is available.</h1>

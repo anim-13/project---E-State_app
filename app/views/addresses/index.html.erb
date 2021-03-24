@@ -12,23 +12,23 @@
         <th scope = "col">Options</th>
       </tr>
     </thead>
-    <tbody>
       <% @addresses.each.with_index(1) do |addr, index_no| %>
-        <tr> 
-          <th scope = "row"><h6><%= index_no %>.</h6> </td> 
-          <td><h6><%= addr.country %></h6></td>
-          <td><h6><%= addr.state %></h6></td>
-          <td><h6><%= addr.city %></h6></td>
-          <td><h6><%= addr.address %></h6></td> 
-          <td><h6><%= addr.pincode %></h6></td>
-          <td>
-            <%= link_to "Edit", edit_user_address_path(:id => addr.id) %> | <%= link_to "Delete", user_address_path(:id => addr.id),
-              method: :delete,
-              data: { confirm: "Are you sure?" } %>
-          </td> 
-        </tr> 
+        <tbody id="deleteAddress<%= addr.id %>">
+          <tr> 
+            <th scope = "row"><h6><%= index_no %>.</h6> </td> 
+            <td><h6><%= addr.country %></h6></td>
+            <td><h6><%= addr.state %></h6></td>
+            <td><h6><%= addr.city %></h6></td>
+            <td><h6><%= addr.address %></h6></td> 
+            <td><h6><%= addr.pincode %></h6></td>
+            <td>
+              <%= link_to "Edit", edit_user_address_path(:id => addr.id) %> | <%= link_to "Delete", user_address_path(:id => addr.id),
+                method: :delete, remote: true,
+                data: { confirm: "Are you sure?" } %>
+            </td> 
+          </tr> 
+        </tbody>
       <% end %>
-    </tbody>
   </table>
 <% else %>
   <h1>No Address is available.</h1>
