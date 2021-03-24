@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_update)
-      UserMailer.with(user: @user).updation_mail.deliver_later
+      UserMailer.with(user: @user).updation_mail.deliver_now
       redirect_to root_url, notice: "Profile updated Successfully"
     else
       render :edit

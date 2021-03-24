@@ -6,4 +6,9 @@ class UserMailer < ApplicationMailer
     @url  = 'http://localhost:3000'
     mail(to: @user.email, subject: 'Welcome to My Awesome Site')
   end
+
+  def updation_mail
+    @user = params[:user]
+    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+  end
 end
