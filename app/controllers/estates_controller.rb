@@ -1,21 +1,6 @@
 class EstatesController < ApplicationController
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
   before_action :set_user, only: %i(new show create edit update destroy)
   before_action :set_estate, only: %i(edit show update destroy)
-=======
-  before_action :set_user, only: %i(new create edit update destroy)
-  before_action :set_estate, only: %i(edit update destroy)
->>>>>>> master
-=======
-  before_action :set_user, only: %i(new create edit update destroy)
-  before_action :set_estate, only: %i(edit update destroy)
->>>>>>> master
-=======
-  before_action :set_user, only: %i(new create edit update destroy)
-  before_action :set_estate, only: %i(edit update destroy)
->>>>>>> master
 
   def index
     @estates = current_user.estates
@@ -35,22 +20,10 @@ class EstatesController < ApplicationController
       render :new
     end
   end
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
   def show
     @estates = Estate.includes(:contract).references(:contract).where('estate_id IS NULL').where.not(estates: {user_id: current_user})
   end
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
-=======
->>>>>>> master
   
   def edit; end
 
