@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :estates 
     resources :addresses, except: :show
-    resources :contracts
+    resources :contracts, except: :show
   end
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'

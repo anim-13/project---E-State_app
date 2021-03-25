@@ -22,7 +22,7 @@ class EstatesController < ApplicationController
   end
 
   def show
-    @estates = Estate.includes(:contract).references(:contract).where('estate_id IS NULL').where.not(estates: {user_id: current_user})
+    @estates = Estate.buy_estate(current_user)
   end
   
   def edit; end
