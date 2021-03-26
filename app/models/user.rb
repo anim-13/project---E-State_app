@@ -9,4 +9,5 @@ class User < ApplicationRecord
   validates :password, confirmation: true, length: {minimum: 6, maximum: 20}, on: :create
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
   validates :contact, presence: true, numericality: true, length: {minimum: 8, maximum: 12}
+  validates :name, presence: true
 end
