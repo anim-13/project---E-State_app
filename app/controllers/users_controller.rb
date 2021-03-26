@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      UserJob.perform_later(@user)
       flash[:notice] = "Account created successfully!"
       redirect_to root_path
     else
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_update)
+      UserMailer.with(user: @user).updation_mail.deliver_now
       redirect_to root_url, notice: "Profile updated Successfully"
     else
       render :edit
