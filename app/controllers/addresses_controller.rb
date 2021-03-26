@@ -47,5 +47,6 @@ class AddressesController < ApplicationController
 
   def set_address
     @address = Address.find_by_id(params[:id])
+    redirect_to edit_user_path(current_user), notice: "Address not found" unless @address.present?
   end
 end

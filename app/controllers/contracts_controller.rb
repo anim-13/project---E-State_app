@@ -41,7 +41,7 @@ class ContractsController < ApplicationController
   private
 
   def contract_params
-    params.require(:contract).permit(:start_date, :end_date, :transaction_id, :amount, :transaction_mode, :estate_id)
+    params.require(:contract).permit(:start_date, :end_date, :transaction_id, :amount, :transaction_mode)
   end
 
   def set_user
@@ -50,5 +50,6 @@ class ContractsController < ApplicationController
 
   def set_contract
     @contract = @user.contracts.find_by_id(params[:id])
+    redirect_to edit_user_path(current_user), notice: "Contract not found" unless @contract.present?
   end
 end
