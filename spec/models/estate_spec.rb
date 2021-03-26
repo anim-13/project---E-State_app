@@ -8,42 +8,38 @@ RSpec.describe Estate, type: :model do
   end
 
   describe "Validations" do
-    it "is valid with valid attributes" do
-      expect(subject).to be_valid
-    end
-
     it "is not valid without a name" do
-      name.country = nil
+      subject.name = nil
       expect(subject).to_not be_valid
     end
 
     it "is not valid without an address" do
-      address.state = nil
+      subject.address = nil
       expect(subject).to_not be_valid
     end
 
     it "is not valid without an area" do
-      area.city = nil
+      subject.area = nil
       expect(subject).to_not be_valid
     end
 
     it "is not valid without an bedroom" do
-      bedroom.address = nil
+      subject.bedroom = nil
       expect(subject).to_not be_valid
     end
 
     it "is not valid without an hall" do
-      hall.pincode = nil
+      subject.hall = nil
       expect(subject).to_not be_valid
     end
 
     it "is not valid without an kitchen" do
-      kitchen.pincode = nil
+      subject.kitchen = nil
       expect(subject).to_not be_valid
     end
 
     it "is not valid without an park" do
-      park.pincode = nil
+      subject.park = nil
       expect(subject).to_not be_valid
     end
   end
