@@ -1,0 +1,26 @@
+<h1>Contract Details</h1>
+<%= form_for ([@user, @contract]) do |f| %>
+  <div class = "labels text-body" >
+    <%= f.label :Start_Date, class: "text-white" %><br>
+    <%= f.date_select :start_date, class: "text_field", readonly: true %>
+  </div>
+  <div class = "labels text-body" >
+    <%= f.label :End_Date, class: "text-white" %><br>
+    <%= f.date_select :end_date, class: "text_field", readonly: true %>
+  </div>
+  <div class = "labels text-body" >
+    <%= f.label :Transaction_id, class: "text-white" %><br>
+    <%= f.text_field :transaction_id, class: "text_field", readonly: true %>
+  </div>
+  <div class = "labels text-body" >
+    <%= f.label :Amount, class: "text-white" %><br>
+    <%= f.number_field :amount, class: "text_field", readonly: true %>
+  </div>
+  <div class = "labels text-body" >
+    <%= f.label :Transaction_Mode, class: "text-white" %><br>
+    <%= f.text_field :transaction_mode, class: "text_field", readonly: true %>
+  </div>
+  <div>
+    <br><%= link_to "Back", user_contracts_path %>
+  </div>
+<% end %>
