@@ -1,6 +1,6 @@
 class EstatesController < ApplicationController
-  before_action :set_user, only: %i(new create edit update destroy)
-  before_action :set_estate, only: %i(edit update destroy)
+  before_action :set_user, only: %i(new show create edit update destroy)
+  before_action :set_estate, only: %i(edit show update destroy)
 
   def index
     @estates = current_user.estates
@@ -19,6 +19,10 @@ class EstatesController < ApplicationController
       flash.now.alert = "Estate not Created"
       render :new
     end
+  end
+
+  def show
+    @estates = Estate.buy_estate(current_user)
   end
   
   def edit; end
@@ -50,5 +54,6 @@ class EstatesController < ApplicationController
 
   def set_estate
     @estate = @user.estates.find_by_id(params[:id])
+    redirect_to edit_user_path(current_user), notice: "Estate not found" unless @estate.present?
   end
 end

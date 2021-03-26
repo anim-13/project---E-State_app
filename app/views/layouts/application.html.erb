@@ -11,8 +11,8 @@
   </head>
 
   <body>
-    <%= render 'layouts/message' %>   
     <%= render 'layouts/navigation' %>
+    <%= render 'layouts/message' %>   
     <% if current_user %><br>
       <%= "Logged in as #{current_user.email}" %> | <%= link_to 'Home', root_path %> | <%= link_to 'Log Out', logout_path, method: :delete %>  
     <% else %><br>

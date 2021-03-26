@@ -1,0 +1,35 @@
+<h1>All Contracts </h1>
+<% if @contracts.present? %>
+  <table class = "table"> 
+    <thead>
+      <tr>
+        <th scope = "col">S.No.</th>
+        <th scope = "col">Start_Date</th>
+        <th scope = "col">End_Date</th>
+        <th scope = "col">Transaction_id</th>
+        <th scope = "col">Amount</th>
+        <th scope = "col">Transaction_Mode</th>
+        <th scope = "col">Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @contracts.each.with_index(1) do |contract, index_no| %>
+        <tr>
+          <th scope = "row"><h6><%= index_no %>.</h6> </td> 
+          <td><h6><%= contract.start_date %></h6></td>
+          <td><h6><%= contract.end_date %></h6></td>
+          <td><h6><%= contract.transaction_id %></h6></td>
+          <td><h6><%= contract.amount %></h6></td> 
+          <td><h6><%= contract.transaction_mode %></h6></td>
+          <td>
+            <%= link_to "Edit", edit_user_contract_path(id: contract.id) %> | <%= link_to "Delete", user_contract_path(id: contract.id),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+          </td>
+        </tr> 
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <h1>No Contract is available.</h1>
+<% end %>
