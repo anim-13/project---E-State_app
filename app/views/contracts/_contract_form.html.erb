@@ -1,4 +1,4 @@
-<%= form_for ([@user, @contract]) do |f| %>
+<%= form_for ([current_user, @contract]) do |f| %>
   <div class = "labels text-body" >
     <%= f.label :Start_Date, class: "text-white" %><br>
     <%= f.date_select :start_date, class: "text_field", autofocus: true %>

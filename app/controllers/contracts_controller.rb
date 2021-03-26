@@ -24,6 +24,7 @@ class ContractsController < ApplicationController
   def edit; end
 
   def update    
+    byebug
     if @contract.update(contract_params)
       flash[:notice] = "Contract updated successfully!"
       redirect_to user_contracts_path
@@ -41,14 +42,15 @@ class ContractsController < ApplicationController
   private
 
   def contract_params
-    params.require(:contract).permit(:start_date, :end_date, :transaction_id, :amount, :transaction_mode, :estate_id)
+    params.require(:contract).permit(:start_date, :end_date, :transaction_id, :amount, :transaction_mode)
   end
 
   def set_user
-    @user = current_user
+    @user = current_user    
   end
 
   def set_contract
     @contract = @user.contracts.find_by_id(params[:id])
+    redirect_to edit_user_path(current_user), notice: "Contract not found" unless @contract.present?
   end
 end

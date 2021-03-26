@@ -27,4 +27,9 @@ RSpec.describe User, type: :model do
     subject.contact = nil
     expect(subject).to_not be_valid
   end
+
+  it 'email should be in correct format with @ and .' do
+    subject.email = "mymail"
+    expect(subject).to_not be_valid
+  end
 end

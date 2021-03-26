@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Address, type: :model do
-  subject { described_class.new(country: "India", state: "MP", city: "sagar", address: "apan-ghar", pincode: "1234") }
+  subject { described_class.new(country: "India", state: "MP", city: "sagar", address: "apan-ghar", pincode: "1234", user_id: User.last.id) }
 
   describe "Associations" do
     it { should belong_to(:user) }
