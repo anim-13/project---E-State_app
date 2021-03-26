@@ -12,13 +12,12 @@ class AddressesController < ApplicationController
 
   def create  
     @address = @user.addresses.new(address_params)
-
     respond_to do |format|
       if @address.save
-        #flash[:notice] = "Address created successfully!"
+        flash[:notice] = "Address created successfully!"
         format.html { redirect_to user_addresses_path }
       else
-        #flash.now.alert = "Not Created"
+        flash.now.alert = "Not Created"
         format.html { render :new }
         format.js
       end

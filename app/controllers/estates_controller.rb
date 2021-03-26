@@ -12,12 +12,15 @@ class EstatesController < ApplicationController
 
   def create  
     @estate = @user.estates.new(estate_params)
-    if @estate.save
-      flash[:notice] = "Estate created successfully!"
-      redirect_to user_estates_path
-    else
-      flash.now.alert = "Estate not Created"
-      render :new
+    respond_to do |format|
+      if @estate.save
+        flash[:notice] = "Estate created successfully!"
+        format.html { redirect_to user_estates_path }
+      else
+        flash.now.alert = "Estate not Created"
+        format.html { render :new }
+        format.js
+      end
     end
   end
 
