@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      ActionCable.server.broadcast "web_notifications_channel", content: @user.name
       UserJob.perform_later(@user)
       flash[:notice] = "Account created successfully!"
       redirect_to root_path
