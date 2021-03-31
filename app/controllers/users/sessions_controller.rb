@@ -9,9 +9,10 @@ class Users::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    super
+    ActionCable.server.broadcast('notification_channel','You have visited Log in Page')
+  end
 
   # DELETE /resource/sign_out
   # def destroy
