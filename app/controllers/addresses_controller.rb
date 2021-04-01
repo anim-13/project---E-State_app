@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
-  before_action :set_user, only: [:create, :edit, :update, :destroy]
-  before_action :set_address, only: [:edit, :upadte, :destroy]
+  before_action :set_user, only: %i(new create edit update destroy)
+  before_action :set_address, only: %i(edit update destroy)
 
   def index
     @addresses = current_user.addresses
@@ -47,5 +47,6 @@ class AddressesController < ApplicationController
 
   def set_address
     @address = Address.find_by_id(params[:id])
+    redirect_to edit_user_path(current_user), notice: "Address not found" unless @address.present?
   end
 end

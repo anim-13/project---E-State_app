@@ -54,5 +54,6 @@ class EstatesController < ApplicationController
 
   def set_estate
     @estate = @user.estates.find_by_id(params[:id])
+    redirect_to edit_user_path(current_user), notice: "Estate not found" unless @estate.present?
   end
 end

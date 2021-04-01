@@ -1,0 +1,5 @@
+<h1>Welcome to Apna-Adda</h1>
+<h6>It is an e-state web application designed using rails. In this application, a person can sell and buy mulitple properties online.</h6>
+<% if user_signed_in? %>
+  <%= link_to "Show Addresses", user_addresses_path(current_user), class: "btn btn-outline-dark" %> | <%= link_to "Show Estates", user_estates_path(current_user), class: "btn btn-outline-dark" %>
+<% end %>

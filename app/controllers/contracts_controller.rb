@@ -24,7 +24,6 @@ class ContractsController < ApplicationController
   def edit; end
 
   def update    
-    byebug
     if @contract.update(contract_params)
       flash[:notice] = "Contract updated successfully!"
       redirect_to user_contracts_path
@@ -46,7 +45,7 @@ class ContractsController < ApplicationController
   end
 
   def set_user
-    @user = current_user    
+    @user = current_user
   end
 
   def set_contract
