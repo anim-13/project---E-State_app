@@ -12,3 +12,7 @@ import "bootstrap"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import $ from 'jquery'
+window.jQuery = $
+window.$ = $

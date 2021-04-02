@@ -1,0 +1,3 @@
+<% if @estate.errors.any? %>
+  alert("ERROR(S): <%= j @estate.errors.full_messages.join(': ')%>)
+<% end %>

@@ -1,5 +1,5 @@
 <h1>Add Address</h1>
-<%= form_for ([ @user, @address]) do |f| %>
+<%= form_for ([@user, @address]), remote: true do |f| %>
   <div class = "labels text-body" >
     <%= f.label :country, class: "text-white" %><br>
     <%= f.text_field :country, class: "text_field", placeholder: "Country", autofocus: true %>
